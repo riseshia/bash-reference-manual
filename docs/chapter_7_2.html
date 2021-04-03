@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Job Control Builtins - Bash Reference Manual</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">들어가기 전에</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_1.html"><strong aria-hidden="true">1.1.</strong> What is Bash?</a></li><li class="chapter-item expanded "><a href="chapter_1_2.html"><strong aria-hidden="true">1.2.</strong> What is a shell?</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Definitions</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Basic Shell Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_1.html"><strong aria-hidden="true">3.1.</strong> Shell Syntax</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_1_1.html"><strong aria-hidden="true">3.1.1.</strong> Shell Operation</a></li><li class="chapter-item expanded "><a href="chapter_3_1_2.html"><strong aria-hidden="true">3.1.2.</strong> Quoting</a></li><li class="chapter-item expanded "><a href="chapter_3_1_3.html"><strong aria-hidden="true">3.1.3.</strong> Comments</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_2.html"><strong aria-hidden="true">3.2.</strong> Shell Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_2_1.html"><strong aria-hidden="true">3.2.1.</strong> Reserved Words</a></li><li class="chapter-item expanded "><a href="chapter_3_2_2.html"><strong aria-hidden="true">3.2.2.</strong> Simple Commands</a></li><li class="chapter-item expanded "><a href="chapter_3_2_3.html"><strong aria-hidden="true">3.2.3.</strong> Pipelines</a></li><li class="chapter-item expanded "><a href="chapter_3_2_4.html"><strong aria-hidden="true">3.2.4.</strong> Lists of Commands</a></li><li class="chapter-item expanded "><a href="chapter_3_2_5.html"><strong aria-hidden="true">3.2.5.</strong> Compound Commands</a></li><li class="chapter-item expanded "><a href="chapter_3_2_6.html"><strong aria-hidden="true">3.2.6.</strong> Coprocesses</a></li><li class="chapter-item expanded "><a href="chapter_3_2_7.html"><strong aria-hidden="true">3.2.7.</strong> GNU Parallel</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_3.html"><strong aria-hidden="true">3.3.</strong> Shell Functions</a></li><li class="chapter-item expanded "><a href="chapter_3_4.html"><strong aria-hidden="true">3.4.</strong> Shell Parameters</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_4_1.html"><strong aria-hidden="true">3.4.1.</strong> Positional Parameters</a></li><li class="chapter-item expanded "><a href="chapter_3_4_2.html"><strong aria-hidden="true">3.4.2.</strong> Special Parameters</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_5.html"><strong aria-hidden="true">3.5.</strong> Shell Expansions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_5_1.html"><strong aria-hidden="true">3.5.1.</strong> Brace Expansion</a></li><li class="chapter-item expanded "><a href="chapter_3_5_2.html"><strong aria-hidden="true">3.5.2.</strong> Tilde Expansion</a></li><li class="chapter-item expanded "><a href="chapter_3_5_3.html"><strong aria-hidden="true">3.5.3.</strong> Shell Parameter Expansion</a></li><li class="chapter-item expanded "><a href="chapter_3_5_4.html"><strong aria-hidden="true">3.5.4.</strong> Command Substitution</a></li><li class="chapter-item expanded "><a href="chapter_3_5_5.html"><strong aria-hidden="true">3.5.5.</strong> Arithmetic Expansion</a></li><li class="chapter-item expanded "><a href="chapter_3_5_6.html"><strong aria-hidden="true">3.5.6.</strong> Process Substitution</a></li><li class="chapter-item expanded "><a href="chapter_3_5_7.html"><strong aria-hidden="true">3.5.7.</strong> Word Splitting</a></li><li class="chapter-item expanded "><a href="chapter_3_5_8.html"><strong aria-hidden="true">3.5.8.</strong> Filename Expansion</a></li><li class="chapter-item expanded "><a href="chapter_3_5_9.html"><strong aria-hidden="true">3.5.9.</strong> Quote Removal</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_6.html"><strong aria-hidden="true">3.6.</strong> Redirections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_6_1.html"><strong aria-hidden="true">3.6.1.</strong> Redirecting Input</a></li><li class="chapter-item expanded "><a href="chapter_3_6_2.html"><strong aria-hidden="true">3.6.2.</strong> Redirecting Output</a></li><li class="chapter-item expanded "><a href="chapter_3_6_3.html"><strong aria-hidden="true">3.6.3.</strong> Appending Redirected Output</a></li><li class="chapter-item expanded "><a href="chapter_3_6_4.html"><strong aria-hidden="true">3.6.4.</strong> Redirecting Standard Output and Standard Error</a></li><li class="chapter-item expanded "><a href="chapter_3_6_5.html"><strong aria-hidden="true">3.6.5.</strong> Appending Standard Output and Standard Error</a></li><li class="chapter-item expanded "><a href="chapter_3_6_6.html"><strong aria-hidden="true">3.6.6.</strong> Here Documents</a></li><li class="chapter-item expanded "><a href="chapter_3_6_7.html"><strong aria-hidden="true">3.6.7.</strong> Here Strings</a></li><li class="chapter-item expanded "><a href="chapter_3_6_8.html"><strong aria-hidden="true">3.6.8.</strong> Duplicating File Descriptors</a></li><li class="chapter-item expanded "><a href="chapter_3_6_9.html"><strong aria-hidden="true">3.6.9.</strong> Moving File Descriptors</a></li><li class="chapter-item expanded "><a href="chapter_3_6_10.html"><strong aria-hidden="true">3.6.10.</strong> Opening File Descriptors for Reading and Writing</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_7.html"><strong aria-hidden="true">3.7.</strong> Executing Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_7_1.html"><strong aria-hidden="true">3.7.1.</strong> Simple Command Expansion</a></li><li class="chapter-item expanded "><a href="chapter_3_7_2.html"><strong aria-hidden="true">3.7.2.</strong> Command Search and Execution</a></li><li class="chapter-item expanded "><a href="chapter_3_7_3.html"><strong aria-hidden="true">3.7.3.</strong> Command Execution Environment</a></li><li class="chapter-item expanded "><a href="chapter_3_7_4.html"><strong aria-hidden="true">3.7.4.</strong> Environment</a></li><li class="chapter-item expanded "><a href="chapter_3_7_5.html"><strong aria-hidden="true">3.7.5.</strong> Exit Status</a></li><li class="chapter-item expanded "><a href="chapter_3_7_6.html"><strong aria-hidden="true">3.7.6.</strong> Signals</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_8.html"><strong aria-hidden="true">3.8.</strong> Shell Scripts</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Shell Builtin Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_4_1.html"><strong aria-hidden="true">4.1.</strong> Bourne Shell Builtins</a></li><li class="chapter-item expanded "><a href="chapter_4_2.html"><strong aria-hidden="true">4.2.</strong> Bash Builtin Commands</a></li><li class="chapter-item expanded "><a href="chapter_4_3.html"><strong aria-hidden="true">4.3.</strong> Modifying Shell Behavior</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_4_3_1.html"><strong aria-hidden="true">4.3.1.</strong> The Set Builtin</a></li><li class="chapter-item expanded "><a href="chapter_4_3_2.html"><strong aria-hidden="true">4.3.2.</strong> The Shopt Builtin</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_4_4.html"><strong aria-hidden="true">4.4.</strong> Special Builtins</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Shell Variables</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_5_1.html"><strong aria-hidden="true">5.1.</strong> Bourne Shell Variables</a></li><li class="chapter-item expanded "><a href="chapter_5_2.html"><strong aria-hidden="true">5.2.</strong> Bash Variables</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Bash Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_6_1.html"><strong aria-hidden="true">6.1.</strong> Invoking Bash</a></li><li class="chapter-item expanded "><a href="chapter_6_2.html"><strong aria-hidden="true">6.2.</strong> Bash Startup Files</a></li><li class="chapter-item expanded "><a href="chapter_6_3.html"><strong aria-hidden="true">6.3.</strong> Interactive Shells</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_6_3_1.html"><strong aria-hidden="true">6.3.1.</strong> What is an Interactive Shell?</a></li><li class="chapter-item expanded "><a href="chapter_6_3_2.html"><strong aria-hidden="true">6.3.2.</strong> Is this Shell Interactive?</a></li><li class="chapter-item expanded "><a href="chapter_6_3_3.html"><strong aria-hidden="true">6.3.3.</strong> Interactive Shell Behavior</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_6_4.html"><strong aria-hidden="true">6.4.</strong> Bash Conditional Expressions</a></li><li class="chapter-item expanded "><a href="chapter_6_5.html"><strong aria-hidden="true">6.5.</strong> Shell Arithmetic</a></li><li class="chapter-item expanded "><a href="chapter_6_6.html"><strong aria-hidden="true">6.6.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="chapter_6_7.html"><strong aria-hidden="true">6.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="chapter_6_8.html"><strong aria-hidden="true">6.8.</strong> The Directory Stack</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_6_8_1.html"><strong aria-hidden="true">6.8.1.</strong> Directory Stack Builtins</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_6_9.html"><strong aria-hidden="true">6.9.</strong> Controlling the Prompt</a></li><li class="chapter-item expanded "><a href="chapter_6_10.html"><strong aria-hidden="true">6.10.</strong> The Restricted Shell</a></li><li class="chapter-item expanded "><a href="chapter_6_11.html"><strong aria-hidden="true">6.11.</strong> Bash POSIX Mode</a></li><li class="chapter-item expanded "><a href="chapter_6_12.html"><strong aria-hidden="true">6.12.</strong> Shell Compatibility Mode</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Job Control</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_7_1.html"><strong aria-hidden="true">7.1.</strong> Job Control Basics</a></li><li class="chapter-item expanded "><a href="chapter_7_2.html" class="active"><strong aria-hidden="true">7.2.</strong> Job Control Builtins</a></li><li class="chapter-item expanded "><a href="chapter_7_3.html"><strong aria-hidden="true">7.3.</strong> Job Control Variables</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Command Line Editing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_1.html"><strong aria-hidden="true">8.1.</strong> Introduction and Notation</a></li><li class="chapter-item expanded "><a href="chapter_8_2.html"><strong aria-hidden="true">8.2.</strong> Readline Interaction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_2_1.html"><strong aria-hidden="true">8.2.1.</strong> Readline Bare Essentials</a></li><li class="chapter-item expanded "><a href="chapter_8_2_2.html"><strong aria-hidden="true">8.2.2.</strong> Readline Movement Commands</a></li><li class="chapter-item expanded "><a href="chapter_8_2_3.html"><strong aria-hidden="true">8.2.3.</strong> Readline Killing Commands</a></li><li class="chapter-item expanded "><a href="chapter_8_2_4.html"><strong aria-hidden="true">8.2.4.</strong> Readline Arguments</a></li><li class="chapter-item expanded "><a href="chapter_8_2_5.html"><strong aria-hidden="true">8.2.5.</strong> Searching for Commands in the History</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_8_3.html"><strong aria-hidden="true">8.3.</strong> Readline Init File</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_3_1.html"><strong aria-hidden="true">8.3.1.</strong> Readline Init File Syntax</a></li><li class="chapter-item expanded "><a href="chapter_8_3_2.html"><strong aria-hidden="true">8.3.2.</strong> Conditional Init Constructs</a></li><li class="chapter-item expanded "><a href="chapter_8_3_3.html"><strong aria-hidden="true">8.3.3.</strong> Sample Init File</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_8_4.html"><strong aria-hidden="true">8.4.</strong> Bindable Readline Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_4_1.html"><strong aria-hidden="true">8.4.1.</strong> Commands For Moving</a></li><li class="chapter-item expanded "><a href="chapter_8_4_2.html"><strong aria-hidden="true">8.4.2.</strong> Commands For Manipulating The History</a></li><li class="chapter-item expanded "><a href="chapter_8_4_3.html"><strong aria-hidden="true">8.4.3.</strong> Commands For Changing Text</a></li><li class="chapter-item expanded "><a href="chapter_8_4_4.html"><strong aria-hidden="true">8.4.4.</strong> Killing And Yanking</a></li><li class="chapter-item expanded "><a href="chapter_8_4_5.html"><strong aria-hidden="true">8.4.5.</strong> Specifying Numeric Arguments</a></li><li class="chapter-item expanded "><a href="chapter_8_4_6.html"><strong aria-hidden="true">8.4.6.</strong> Commands For Completion</a></li><li class="chapter-item expanded "><a href="chapter_8_4_7.html"><strong aria-hidden="true">8.4.7.</strong> Keyboard Macros</a></li><li class="chapter-item expanded "><a href="chapter_8_4_8.html"><strong aria-hidden="true">8.4.8.</strong> Miscellaneous Commands</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_8_5.html"><strong aria-hidden="true">8.5.</strong> Readline vi Mode</a></li><li class="chapter-item expanded "><a href="chapter_8_6.html"><strong aria-hidden="true">8.6.</strong> Programmable Completion</a></li><li class="chapter-item expanded "><a href="chapter_8_7.html"><strong aria-hidden="true">8.7.</strong> Programmable Completion Builtins</a></li><li class="chapter-item expanded "><a href="chapter_8_8.html"><strong aria-hidden="true">8.8.</strong> A Programmable Completion Example</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Using History Interactively</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_9_1.html"><strong aria-hidden="true">9.1.</strong> Bash History Facilities</a></li><li class="chapter-item expanded "><a href="chapter_9_2.html"><strong aria-hidden="true">9.2.</strong> Bash History Builtins</a></li><li class="chapter-item expanded "><a href="chapter_9_3.html"><strong aria-hidden="true">9.3.</strong> History Interaction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_9_3_1.html"><strong aria-hidden="true">9.3.1.</strong> Event Designators</a></li><li class="chapter-item expanded "><a href="chapter_9_3_2.html"><strong aria-hidden="true">9.3.2.</strong> Word Designators</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Bash Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="72-job-control-builtins"><a class="header" href="#72-job-control-builtins">7.2 Job Control Builtins</a></h2>
+<p><strong>bg</strong></p>
+<pre><code class="language-sh">bg [jobspec …]
+</code></pre>
+<p>중단된 잡 <em>jobspec</em>을 '&amp;'로 실행한 것처럼 백그라운드에서 재개합니다. <em>jobspec</em>을 넘기지 않았다면, 현재 잡이 사용됩니다. 잡 컨트롤 기능이 켜져있지 않거나, 기능이 켜져 있지만 지정한 <em>jobspec</em>을 찾을 수 없거나 지정된 잡이 잡 컨트롤 기능을 사용하지 않고 시작한 경우를 제외하면 종료 스테이터스는 0입니다.</p>
+<p><strong>fg</strong></p>
+<pre><code class="language-sh">fg [jobspec]
+</code></pre>
+<p>잡 <em>jobspec</em>을 포어그라운드에서 재개하고 현재 잡으로 변경합니다. <em>jobspec</em>을 넘기지 않았다면, 현재 잡이 사용됩니다. 반환 스테이터스는 포어그라운드로 가져온 명령어의 반환 스테이터스가 됩니다. 또는 잡 컨트롤 기능이 켜지 않았거나 기능이 켜져 있지만 <em>jobspec</em>이 유효한 잡을 지정하지 않거나 <em>jobspec</em>이 잡 컨트롤 기능을 사용하지 않고 시작한 경우에는 0이 아닌 값을 반환합니다.</p>
+<p><strong>jobs</strong></p>
+<pre><code class="language-sh">jobs [-lnprs] [jobspec]
+jobs -x command [arguments]
+</code></pre>
+<p>첫번째 형식은 살아있는 잡 리스트를 출력합니다. 옵션은 다음의 의미를 가집니다.</p>
+<ul>
+<li>
+<p><strong>-l</strong></p>
+<p>기본 정보에 프로세스 ID를 추가로 출력합니다.</p>
+</li>
+<li>
+<p><strong>-n</strong></p>
+<p>유저가 상태에 대한 정보를 받은 이후로 상태가 변경된 잡에 관한 정보만 출력합니다.</p>
+</li>
+<li>
+<p><strong>-p</strong></p>
+<p>잡의 프로세스 그룹 리더의 프로세스 ID만을 출력합니다.</p>
+</li>
+<li>
+<p><strong>-r</strong></p>
+<p>실행중인 잡만 출력합니다.</p>
+</li>
+<li>
+<p><strong>-s</strong></p>
+<p>중단중인 잡만 출력합니다.</p>
+</li>
+</ul>
+<p><em>jobspec</em>을 넘기면 대상 잡의 정보만 출력합니다. <em>jobspec</em>을 넘기지 않으면 모든 잡의 상태를 출력합니다.</p>
+<p><code>-x</code> 옵션을 넘기면 <code>jobs</code>는 <em>command</em>나 <em>arguments</em>로 발견한 <em>jobspec</em>을 대응하는 프로세스 그룹 ID로 대체한 뒤, <em>command</em>를 실행하고, <em>arguments</em>를 인수로 넘긴 뒤, 그 종료 스테이터스를 반환합니다.</p>
+<p><strong>kill</strong></p>
+<pre><code class="language-sh">kill [-s sigspec] [-n signum] [-sigspec] jobspec or pid
+kill -l|-L [exit_status]
+</code></pre>
+<p><em>sigspec</em>이나 <em>signum</em>으로 지정한 신호를 잡 명세 <em>jobspec</em> 또는 프로세스 ID <em>pid</em>로 지정되는 프로세스로 전송합니다. <em>sigspec</em>은 <code>SIGINT</code>와 같은 대소문자를 구분하지 않는 시그널 이름(<code>SIG</code> 접두사 없이 지정할 수 있습니다) 또는 시그널 번호입니다. <em>signum</em>은 시그널 번호입니다. <em>sigspec</em>과 <em>signum</em>이 둘 다 존재하지 않는다면 <code>SIGTERM</code>이 사용됩니다. <code>-l</code> 옵션은 시그널 이름을 나열합니다. <code>-l</code> 옵션을 넘길 때 다른 인수를 넘겼다면 해당 인수에 대응되는 신호 이름 리스트를 출력하고 반환 스테이터스는 0이 됩니다. <em>exit_status</em>는 시그널 번호 또는 시그널에 의해 종료되는 프로세스의 종료 스테이터스를 지정하는 숫자입니다.<code>-L</code> 옵션은 <code>-l</code>과 동일합니다. 적어도 하나의 시그널이 성공적으로 전송되면 반환 스테이터스는 0이며, 에러가 발생하거나 잘못된 옵션을 넘겨받았다면 0이 아닌 값입니다.</p>
+<p><strong>wait</strong></p>
+<pre><code class="language-sh">wait [-fn] [-p varname] [jobspec or pid …]
+</code></pre>
+<p>각 프로세스 ID <em>pid</em>나 잡 명세 <em>jobspec</em>로 지정된 자식 프로세스의 종료를 기다리고 기다린 마지막 명령어의 종료 스테이터스를 반환합니다. 잡 명를 넘겼다면 잡의 모든 프로세스가 끝나길 기다립니다. 인수를 넘기지 않았다면 <code>wait</code>은 실행중인 모든 백그라운드 잡, 그리고 자신의 프로세스 아이디가 *$!*와 같다면 마지막으로 실행된 프로세스 치환을 기다리며 반환 스테이터스는 0입니다. <code>-n</code> 옵션을 넘겼다면 <code>wait</code>은 <code>pid</code> 목록이나 <code>jobspec</code> 목록으로부터 하나의 잡 또는 인수가 없다면 어떤 잡이든 하나가 끝나기를 기다리고 그 종료 스테이터스를 반환합니다. 넘겨받은 인수가 셸의 자식이 아니거나 인수를 넘기지 않고 셸이 기다릴 수 있는 자식이 없는 경우 종료 스테이터스는 127입니다. <code>-p</code> 옵션을 넘겨받았다면 프로세스나 잡의 잡 식별자가 반환한 종료 스테이터스를 옵션 인수로 지정한 변수 <em>varname</em>에 대입합니다. 변수에 대입을 하기 전에 초기화가 발생합니다. 이는 <code>-n</code> 옵션만을 사용했을 경우 유용합니다. 잡 컨트롤 기능이 켜져있을 때 <code>-f</code> 옵션을 넘겨받았다면 <code>wait</code>는 상태가 변경되는 때에 반환되지 않고, 각 <em>pid</em>나 <em>jobspec</em>이 각자의 스테이터스를 반환하기 전에 종료하기를 기다립니다. <em>jobspec</em>과 <em>pid</em>가 모두 셸의 살아있는 자식 프로세스를 지정하지 않는다면 반환 스테이터스는 127입니다.</p>
+<p><strong>disown</strong></p>
+<pre><code class="language-sh">disown [-ar] [-h] [jobspec … | pid … ]
+</code></pre>
+<p>옵션없이 사용하면 각 <em>jobspec</em>을 살아있는 잡 리스트로부터 제거합니다. <code>-h</code> 옵션을 넘겨받았다면 잡은 리스트에서 제거되지 않고, 셸이 <code>SIGHUP</code>을 받았을 때 <code>SIGHUP</code>을 전파하지 않도록 표시합니다. <em>jobspec</em>이 없고 <code>-a</code>와 <code>-r</code> 옵션을 사용하지 않았다면 현재 잡이 사용됩니다. <em>jobspec</em>을 넘기지 않는다면 <code>-a</code> 옵션은 모든 잡을 제거하거나 표시하라는 의미입니다. <em>jobspec</em>을 넘기지 않는다면 <code>-r</code> 옵션은 실행중인 잡에게 동작을 적용합니다.</p>
+<p><strong>suspend</strong></p>
+<pre><code class="language-sh">suspend [-f]
+</code></pre>
+<p><code>SIGCONT</code> 시그널을 받을 때까지 현재 셸의 실행을 중단합니다. 로그인 셸은 중단할 수 없습니다. <code>-f</code> 옵션은 이를 덮어쓰고 중단을 강제할 수 있습니다.</p>
+<p>잡 컨트롤 기능이 켜져있지 않다면, <code>kill</code>과 <code>wait</code> 빌트인은 <em>jobspec</em> 인수를 받지 않습니다. 반드시 프로세스 ID를 넘겨야 합니다.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="chapter_7_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="chapter_7_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="chapter_7_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="chapter_7_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

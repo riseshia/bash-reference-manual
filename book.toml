@@ -1,0 +1,9 @@
+[book]
+authors = ["Shia"]
+language = "ko"
+multilingual = false
+src = "src"
+title = "Bash Reference Manual"
+
+[build]
+build-dir = "docs"
