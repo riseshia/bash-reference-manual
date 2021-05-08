@@ -187,7 +187,7 @@
 <p><strong>Invoked in POSIX mode</strong></p>
 <p>Bash를 <code>--posix</code> 커맨드 라인 옵션을 사용해서 POSIX 모드로 실행하면 POSIX 표준대로 기동 파일을 읽습니다. 이 모드에서는 인터랙티브 셸은 <code>ENV</code> 변수를 전개하여 얻은 값을 파일명으로 하는 파일로부터 명령어를 읽고 실행합니다. 다른 기동 파일은 읽히지 않습니다.</p>
 <p><strong>Invoked by remote shell daemon</strong></p>
-<p>Bash는 리모트 셸 데몬(일반적으로는 <code>rshd</code>)나 보안 셸 데몬 <code>sshd</code>로 실행되었을 때, 표준입력이 네트워크에 접속된 상태로 실행중인지 아닌지 판단하려 합니다. Bash가 만약 이 방식대로 실행중이라고 판단하면 <code>~/.bashrc</code>가 존재하고 읽을 수 있다면 이 파일로부터 명령어를 읽고 실행합니다. 만약 <code>sh</code>로서 호출되었다면 이 동작은 실행되지 않습니다. <code>--norc</code> 옵션은 이 동작을 금지할 수 있으며, <code>--rcfile</code> 옵션은 다른 파일을 읽도록 강제할 수 있습니다만, <code>rshd</code>나 <code>sshd</code>는 일반적으로 이러한 옵션을 지정해서 셸을 실행할 수 없습니다.</p>
+<p>Bash는 리모트 셸 데몬(일반적으로는 <code>rshd</code>)나 보안 셸 데몬 <code>sshd</code>로 실행되었을 때, 표준입력이 네트워크에 접속된 상태로 실행중인지 아닌지 판단하려 합니다. Bash가 만약 이 방식대로 실행중이라고 판단하고 <code>~/.bashrc</code>를 읽을 수 있다면 이 파일로부터 명령어를 읽고 실행합니다. 만약 <code>sh</code>로서 호출되었다면 이 동작은 실행되지 않습니다. <code>--norc</code> 옵션은 이 동작을 금지할 수 있으며, <code>--rcfile</code> 옵션은 다른 파일을 읽도록 강제할 수 있습니다만, <code>rshd</code>나 <code>sshd</code>는 일반적으로 이러한 옵션을 지정해서 셸을 실행할 수 없습니다.</p>
 <p><strong>Invoked with unequal effective and real UID/GIDs</strong></p>
 <p>Bash가 실제 유저(그룹) id와 다른 유효한 유저(그룹) id로 실행되고, <code>-p</code> 옵션을 넘기지 않았다면 기동 파일을 읽지 않으며 셸 함수는 환경으로부터 상속되지 않습니다. <code>SHELLOPTS</code>, <code>BASHOPTS</code>, <code>CDPATH</code>, <code>GLOBIGNORE</code> 변수가 환경에 있었다면 무시하며 유효한 유저 id에 실제 유저 id를 설정합니다. 만약 호출시에 <code>-p</code> 옵션을 넘겼다면 기동 동작은 동일하지만 유효한 유저 id를 초기화하지 않습니다.</p>
 

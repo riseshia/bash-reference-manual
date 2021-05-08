@@ -166,19 +166,19 @@
                         <h2 id="610-the-restricted-shell"><a class="header" href="#610-the-restricted-shell">6.10 The Restricted Shell</a></h2>
 <p>Bash가 <code>rbash</code>라는 이름으로 실행되거나 호출시에 <code>--restricted</code>나 <code>-r</code> 옵션이 넘겨졌다면 셸은 한정 모드가 됩니다. 한정 모드의 셸은 표준 셸보다 환경을 좀 더 제어하고 싶을 때 사용합니다. 한정 모드의 셸은 다음의 동작을 금지하거나 실행되지 않는다는 점을 제외하면 <code>bash</code>와 동일하게 동작합니다.</p>
 <ul>
-<li><code>cd</code> 빌트인으로 디렉터리를 변경하기.</li>
+<li><code>cd</code> 빌트인 명령어로 디렉터리를 변경하기.</li>
 <li><code>SHELL</code>, <code>PATH</code>, <code>HISTFILE</code>, <code>ENV</code>, <code>BASH_ENV</code> 변수의 값을 설정하거나 제거하기.</li>
 <li>슬래시를 포함하는 명령어 이름을 지정하기.</li>
 <li><code>.</code> 빌트인 명령어의 인수로 슬래시를 포함하는 파일명을 지정하기.</li>
 <li><code>history</code> 빌트인 명령어의 인수로 슬래시를 포함하는 파일명을 지정하기.</li>
-<li><code>gasg</code> 빌트인 명령어의 <code>-p</code> 옵션의 인수로 슬래시를 포함하는 파일명을 지정하기.</li>
+<li><code>hash</code> 빌트인 명령어의 <code>-p</code> 옵션의 인수로 슬래시를 포함하는 파일명을 지정하기.</li>
 <li>기동 중에 셸 환경으로부터 함수 정의를 가져오기.</li>
 <li>기동 중에 셸 환경으로부터 <code>SHELLOPTS</code>의 값을 구문 분석하기.</li>
 <li>리다이렉션 연산자 '&gt;', '&gt;|', '&lt;&gt;', '&gt;&amp;', '&amp;&gt;', '&gt;&gt;'를 사용하여 출력을 리다이렉팅하기.</li>
-<li><code>exec</code> 빌트인을 사용해서 셸을 다른 명령어로 대체하기.</li>
-<li><code>enable</code> 빌트인의 <code>-f</code>, <code>-d</code> 옵션을 사용해서 빌트인 명령어를 추가하거나 제거하기.</li>
+<li><code>exec</code> 빌트인 명령어를 사용해서 셸을 다른 명령어로 대체하기.</li>
+<li><code>enable</code> 빌트인 명령어의 <code>-f</code>, <code>-d</code> 옵션을 사용해서 빌트인 명령어를 추가하거나 제거하기.</li>
 <li><code>enable</code> 빌트인 명령어로 셸 빌트인을 유효화하거나 무효화하기.</li>
-<li><code>command</code> 빌트인에 <code>-p</code> 옵션 지정하기.</li>
+<li><code>command</code> 빌트인 명령어에 <code>-p</code> 옵션 지정하기.</li>
 <li>'set +r'이나 'set +o restricted'로 한정 모드를 끄기.</li>
 </ul>
 <p>이 제약들은 기동 파일을 읽은 후부터 적용됩니다.</p>
