@@ -34,13 +34,14 @@ class MdbookConverter
     sections = {}
     loop do
       next_idx = find_next_header_index(lines, idx + 1)
-      break if next_idx.nil?
 
       title = lines[idx]
       selection = lines[idx...next_idx]
       sections[title] = selection
 
       idx = next_idx
+
+      break if next_idx.nil?
     end
 
     linkable_headers = generate_linkable_headers(lines)

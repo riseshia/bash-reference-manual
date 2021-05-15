@@ -14,16 +14,16 @@
 
 - **${*parameter*:-*word*}**
 
-  *parameter*가 존재하지 않거나 널이라면 *word*의 전개값으로 치환합니다. 그렇지 않다면 *parameter*로 치환합니다.
+  *parameter*가 존재하지 않거나 비어있다면 *word*의 전개값으로 치환합니다. 그렇지 않다면 *parameter*로 치환합니다.
 - **${*parameter*:=*word*}**
 
-  *parameter*가 존재하지 않거나 널이라면 *word*이 *parameter*에 대입됩니다. 그 후에 *parameter*의 값으로 치환합니다. 위치 매개변수와 특수 매개변수는 이 방식으로 대입할 수 없습니다.
+  *parameter*가 존재하지 않거나 비어있다면 *word*이 *parameter*에 대입됩니다. 그 후에 *parameter*의 값으로 치환합니다. 위치 매개변수와 특수 매개변수는 이 방식으로 대입할 수 없습니다.
 - **${*parameter*:?*word*}**
 
-  *parameter*가 존재하지 않거나 널이라면 *word*의 전개 결과(또는 *word*가 존재하지 않는다면 그에 관한 메시지)를 표준 에러 출력과 셸에 출력하며, 인터랙티브 모드가 아니라면 종료합니다. 그렇지 않다면 *parameter*의 값으로 치환합니다.
+  *parameter*가 존재하지 않거나 비어있다면 *word*의 전개 결과(또는 *word*가 존재하지 않는다면 그에 관한 메시지)를 표준 에러 출력과 셸에 출력하며, 인터랙티브 모드가 아니라면 종료합니다. 그렇지 않다면 *parameter*의 값으로 치환합니다.
 - **${*parameter*:+*word*}**
 
-  *parameter*가 존재하지 않거나 널이라면 치환하지 않습니다. 그렇지 않다면, *word*로 치환합니다.
+  *parameter*가 존재하지 않거나 비어있다면 치환하지 않습니다. 그렇지 않다면, *word*로 치환합니다.
 - **${*parameter*:*offset*}**
 
 - **${*parameter*:*offset*:*length*}**
@@ -156,7 +156,7 @@
   *word*는 나중에 설명하는 규칙([Pattern Matching](chapter_3_5_8.html#3581-pattern-matching)을 참조)에 따르는 패턴을 생성하고 일치 검사를 하기 위해서 전개됩니다. *parameter*의의 전개된 값의 끄트머리에 패턴이 일치하면, 전개의 결과는 *parameter*와 일치한 가장 짧은 패턴('`%`'의 경우)이나 가장 긴 패턴('`%%`'의 경우)이 제거된 값입니다. 만약 *parameter*가 '`*`'나 '`@`'라면 각 위치 매개변수에 대해서 삭제가 실행되며 전개의 결과는 삭제가 완료된 각 요소의 리스트입니다. 만약 *parameter*가 '`*`'와 '`@`'를 사용하는 배열의 첨자표기라면 패턴 삭제 동작은 배열의 각 요소에 대해서 수행되며, 전개의 결과는 삭제가 완료된 각 요소의 리스트입니다.
 - **${*parameter*/*pattern*/*string*}**
 
-  *pattern*은 파일명 전개와 동일한 패턴을 생성합니다. *parameter*를 전개하고, *pattern*과 일치하는 가장 긴 일치 결과를 `string`으로 치환합니다. 일치는 나중에 설명하는 규칙([Pattern Matching](chapter_3_5_8.html#3581-pattern-matching)을 참조)에 따라서 수행됩니다. 만약 *pattern*을 '`/`'로 시작하면, 모든 *pattern*의 일치 결과를 *string*으로 치환합니다. 일반적으로 첫번째 일치만을 치환합니다. *pattern*을 '`#`'으로 시작하면 *parameter*를 전개한 값의 첫머리와 일치해야 합니다. *pattern*을 '`%`'로 시작하면 *parameter*를 전개한 값의 끝머리와 일치해야 합니다. 만약 *string*이 널이라면 *pattern*과 일치한 결과는 제거되며 *pattern* 뒤의 `/`를 생략할 수 있습니다. 만약 셸 옵션 `nocasematch`([The Shopt Builtin](chapter_4_3_2.html)을 참조)가 켜져있다면 일치하는지 검사할 때 대소문자를 구별하지 않습니다. 만약 *parameter*가 '`@`'나 '`*`'라면 치환 동작은 각 위치 매개변수에 대해서 수행되며, 전개의 결과는 치환이 완료된 각 요소의 리스트입니다.
+  *pattern*은 파일명 전개와 동일한 패턴을 생성합니다. *parameter*를 전개하고, *pattern*과 일치하는 가장 긴 일치 결과를 `string`으로 치환합니다. 일치는 나중에 설명하는 규칙([Pattern Matching](chapter_3_5_8.html#3581-pattern-matching)을 참조)에 따라서 수행됩니다. 만약 *pattern*을 '`/`'로 시작하면, 모든 *pattern*의 일치 결과를 *string*으로 치환합니다. 일반적으로 첫번째 일치만을 치환합니다. *pattern*을 '`#`'으로 시작하면 *parameter*를 전개한 값의 첫머리와 일치해야 합니다. *pattern*을 '`%`'로 시작하면 *parameter*를 전개한 값의 끝머리와 일치해야 합니다. 만약 *string*이 비어있다면 *pattern*과 일치한 결과는 제거되며 *pattern* 뒤의 `/`를 생략할 수 있습니다. 만약 셸 옵션 `nocasematch`([The Shopt Builtin](chapter_4_3_2.html)을 참조)가 켜져있다면 일치하는지 검사할 때 대소문자를 구별하지 않습니다. 만약 *parameter*가 '`@`'나 '`*`'라면 치환 동작은 각 위치 매개변수에 대해서 수행되며, 전개의 결과는 치환이 완료된 각 요소의 리스트입니다.
 - **${*parameter*^*pattern*}**
 
 - **${*parameter*^^*pattern*}**
